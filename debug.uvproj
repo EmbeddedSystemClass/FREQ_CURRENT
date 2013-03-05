@@ -12,14 +12,14 @@
       <ToolsetName>MCS-51</ToolsetName>
       <TargetOption>
         <TargetCommonOption>
-          <Device>ADuC841</Device>
+          <Device>ADuC845</Device>
           <Vendor>Analog Devices</Vendor>
-          <Cpu>IRAM(0-0xFF) IROM(0-0xF7FF) XRAM (0-0x7FF) CLOCK(12000000) DPX MODAB2</Cpu>
+          <Cpu>IRAM(0-0xFF) XRAM(0-0x7FF) IROM(0-0xF7FF) CLOCK(32768) DPX MODAB2</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile>"LIB\START_AD.A51" ("Analog Devices Startup Code")</StartupFile>
           <FlashDriverDll></FlashDriverDll>
-          <DeviceId>3551</DeviceId>
-          <RegisterFile>ADUC841.H</RegisterFile>
+          <DeviceId>3676</DeviceId>
+          <RegisterFile>ADUC845.H</RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
           <Asm></Asm>
@@ -100,11 +100,11 @@
           <SimDllName>S8051.DLL</SimDllName>
           <SimDllArguments></SimDllArguments>
           <SimDlgDll>DP51.DLL</SimDlgDll>
-          <SimDlgDllArguments>-pAD841</SimDlgDllArguments>
+          <SimDlgDllArguments>-pAD845</SimDlgDllArguments>
           <TargetDllName>S8051.DLL</TargetDllName>
           <TargetDllArguments></TargetDllArguments>
           <TargetDlgDll>TP51.DLL</TargetDlgDll>
-          <TargetDlgDllArguments>-pAD841</TargetDlgDllArguments>
+          <TargetDlgDllArguments>-pAD845</TargetDlgDllArguments>
         </DllOption>
         <DebugOption>
           <OPTHX>
@@ -163,7 +163,7 @@
             <DriverSelection>4099</DriverSelection>
           </Flash1>
           <Flash2>BIN\MONADI.DLL</Flash2>
-          <Flash3>"" ()</Flash3>
+          <Flash3></Flash3>
           <Flash4></Flash4>
         </Utilities>
         <Target51>

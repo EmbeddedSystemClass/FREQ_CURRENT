@@ -1,6 +1,6 @@
 #ifndef WATCHDOG_H
 #define WATCHDOG_H
-#include <ADuC841.h>
+#include <ADuC845.h>
 //-------watchdog`s interwals------------
 #define WDT_125		0x32
 #define WDT_250		0x42

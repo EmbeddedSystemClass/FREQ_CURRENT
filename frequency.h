@@ -6,7 +6,7 @@
 
 #include "preferences.h"
 #include "watchdog.h"
-#include <ADuC841.h>
+#include <ADuC845.h>
 //----------------------------------------------------
 struct Frequency
 {

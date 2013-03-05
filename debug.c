@@ -1,8 +1,9 @@
-#include <ADuC841.h>
+#include <ADuC845.h>
 #include "timer3.h"
 #include "preferences.h"
 #include "watchdog.h"
 #include "frequency.h"
+#include "dac.h"
 sbit LED1=P3^4;
 sbit LED2=P3^5;
 sbit LED3=P3^6;
@@ -20,12 +21,9 @@ void main(void) //using 0
 //	Timer1_Initialize(); //таймер шедулера 200Гц
 
 	Frequency_Init();
-
+	DAC_Init();
 //	WDT_Init(WDT_2000);//включить сторожевой таймер
-	P2=0x0;
-	LED1=0;
-	LED2=0;
-	LED3=0;
+
 	EA=1;
 
 	while(1)

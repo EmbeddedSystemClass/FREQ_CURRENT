@@ -14,7 +14,8 @@
 # define CLI_EXT  EX1=0; EX0=0; ET0=0;
 # define STI_EXT  EX1=1; EX0=1; ET0=1;
 
-
+ sbit INT_1=P3^2;
+ sbit T_0=P3^4;
 
 unsigned long temp_freq=0;
 unsigned char volatile idata measure_state=0;//автомат состояний для оптимизации процесса вычисления(уменьшение нагрузки на процессор)
@@ -34,6 +35,9 @@ void Frequency_Init(void) //инициализация частотных каналов
 	EX0=1;
 	IT0=1;
 //	IT1=1;
+	INT_1=1;
+	T_0=1;
+
 	frequency[FRQ_CHNL_1].time_counter=0;
 	return;
 }

@@ -1,7 +1,7 @@
 #ifndef TIMER1_H
 #define TIMER1_H
 
-#include <ADuC841.h>
+#include <ADuC845.h>
 #include "preferences.h"
 
 void Timer1_Initialize(void);
