@@ -4,10 +4,9 @@
 #include "watchdog.h"
 #include "frequency.h"
 #include "dac.h"
+#include "timer1.h"
 
-sbit LED1=P3^4;
-sbit LED2=P3^5;
-sbit LED3=P3^6;
+
  //---------------------------------------
 
 void main(void) //using 0
@@ -18,13 +17,13 @@ void main(void) //using 0
 	
 	PLLCON&=PLLCON_VAL;//настройка частоты процессора
 //-------printf--------
-    T3CON = T3CON_VAL;
-
-    T3FD = T3FD_VAL;
-    SCON =0x52; //0x53;
+//    T3CON = T3CON_VAL;
+//
+//    T3FD = T3FD_VAL;
+//    SCON =0x52; //0x53;
 //---------------------
 	
-//	Timer1_Initialize(); //таймер шедулера 200√ц
+	Timer1_Initialize(); //таймер генерации частоты
 
 	Frequency_Init();
 	DAC_Init();

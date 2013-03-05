@@ -3,6 +3,7 @@
 "START_AD.obj",
 "frequency.obj",
 "timer2.obj",
-"dac.obj" 
+"dac.obj",
+"timer1.obj" 
 TO "debug" 
 RAMSIZE(256) 

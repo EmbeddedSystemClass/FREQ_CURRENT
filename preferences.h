@@ -73,8 +73,8 @@
 	#define TH0_VAL 0xFF //1000Hz
 	#define TL0_VAL 0xFF
 
-	#define TH1_VAL 	0x1A//0x8A
-	#define TL1_VAL		0x0//0xD0//0xE1
+	#define TH1_VAL 	0xF3//0x1A//0x8A  //частота 2048 Hz-опорная для генератора импульсов
+	#define TL1_VAL		0xFF//0x0//0xD0//0xE1
 
 	#define F_OSC F_OSC_6
 #endif
