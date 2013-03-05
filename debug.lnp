@@ -1,0 +1,10 @@
+"debug.obj",
+"watchdog.obj",
+"START_AD.obj",
+"frequency.obj",
+"timer0.obj",
+"timer1.obj",
+"timer2.obj",
+"dac.obj" 
+TO "debug" 
+RAMSIZE(256) 
