@@ -2,11 +2,12 @@
 #define PROTO_USO_H
 
 #include <ADuC845.h>
-#include "tic.h"
-#include "channels.h"
-#include "adc.h"
-#include "calibrate/calibrate.h"
-#include "ulongsort.h"
+#include "preferences.h"
+//#include "tic.h"
+//#include "channels.h"
+//#include "adc.h"
+//#include "calibrate/calibrate.h"
+//#include "ulongsort.h"
 #include <string.h>
 
 #define HI(x) ((x)>>8)
@@ -23,42 +24,42 @@
 #define MAX_LENGTH_TR_BUF  	256 //максимальная длина передаваемого кадра
 #define CRC_LEN				1 //длина поля CRC
 //-------------------------код операции-------------------------------------------
-#define  GET_DEV_INFO_REQ 				0x1 //получить информацию об устройстве	(код запроса)
-#define  GET_DEV_INFO_RESP				0x2	//получить информацию об устройстве	(код ответа)
+//#define  GET_DEV_INFO_REQ 				0x1 //получить информацию об устройстве	(код запроса)
+//#define  GET_DEV_INFO_RESP				0x2	//получить информацию об устройстве	(код ответа)
+//
+//#define  NODE_FULL_INIT_REQ				0x3	//полная инициализация узла
+//#define  NODE_FULL_INIT_RESP			//полная инициализация узла-нет ответа
+//
+//#define  CHANNEL_LIST_INIT_REQ			0x5 //Инициализация списка каналов узла (без потери данных);
+//#define  CHANNEL_LIST_INIT_RESP			//Инициализация списка каналов узла (без потери данных); нет ответа
+//
+//#define  CHANNEL_GET_DATA_REQ			0x7// Выдать данные по каналам, согласно абсолютной нумерации;
+//#define  CHANNEL_GET_DATA_RESP			0x8// Выдать данные по каналам, согласно абсолютной нумерации;
 
-#define  NODE_FULL_INIT_REQ				0x3	//полная инициализация узла
-#define  NODE_FULL_INIT_RESP			//полная инициализация узла-нет ответа
+#define  CHANNEL_SET_PARAMETERS_REQ  	0x1	//Установить параметры по каналам, согласно абсолютной нумерации;	
+//#define  CHANNEL_SET_PARAMETERS_RESP  	//Установить параметры по каналам, согласно абсолютной нумерации; нет ответа
+//
+//#define  CHANNEL_SET_ORDER_QUERY_REQ   	0xA//Задать последовательность опроса;
+//#define  CHANNEL_SET_ORDER_QUERY_RESP 	//Задать последовательность опроса; нет ответа
+//
+//#define  CHANNEL_GET_DATA_ORDER_REQ		0xC	//Выдать данные по каналам, согласно последовательности опроса;
+//#define  CHANNEL_GET_DATA_ORDER_RESP	0xD	//Выдать данные по каналам, согласно последовательности опроса;
+//
+//#define  CHANNEL_SET_STATE_REQ		   	0xE//Установить состояния по каналам, согласно абсолютной нумерации;
+//#define  CHANNEL_SET_STATE_RESP			   //Установить состояния по каналам, согласно абсолютной нумерации; нет ответа
+//
+//#define CHANNEL_GET_DATA_ORDER_M2_REQ	0x10 //Выдать данные по каналам, согласно последовательности опроса;
+//#define CHANNEL_GET_DATA_ORDER_M2_RESP	0x11//Выдать данные по каналам, согласно последовательности опроса;
+//
+//#define CHANNEL_SET_RESET_STATE_FLAGS_REQ  0x12//Установка/Сброс флагов состояния 
+//#define CHANNEL_SET_RESET_STATE_FLAGS_RESP //Установка/Сброс флагов состояния -нет ответа
+//
+//#define  CHANNEL_ALL_GET_DATA_REQ		0x14 //Выдать информацию по всем каналам узла (расширенный режим);
+//#define  CHANNEL_ALL_GET_DATA_RESP		0x15 //Выдать информацию по всем каналам узла (расширенный режим);
+//
+//#define  CHANNEL_SET_ADDRESS_DESC		0xCD //установить новый адрес устройства, имя, описание, версию прошивки и комментарий
 
-#define  CHANNEL_LIST_INIT_REQ			0x5 //Инициализация списка каналов узла (без потери данных);
-#define  CHANNEL_LIST_INIT_RESP			//Инициализация списка каналов узла (без потери данных); нет ответа
-
-#define  CHANNEL_GET_DATA_REQ			0x7// Выдать данные по каналам, согласно абсолютной нумерации;
-#define  CHANNEL_GET_DATA_RESP			0x8// Выдать данные по каналам, согласно абсолютной нумерации;
-
-#define  CHANNEL_SET_PARAMETERS_REQ  	0x9	//Установить параметры по каналам, согласно абсолютной нумерации;	
-#define  CHANNEL_SET_PARAMETERS_RESP  	//Установить параметры по каналам, согласно абсолютной нумерации; нет ответа
-
-#define  CHANNEL_SET_ORDER_QUERY_REQ   	0xA//Задать последовательность опроса;
-#define  CHANNEL_SET_ORDER_QUERY_RESP 	//Задать последовательность опроса; нет ответа
-
-#define  CHANNEL_GET_DATA_ORDER_REQ		0xC	//Выдать данные по каналам, согласно последовательности опроса;
-#define  CHANNEL_GET_DATA_ORDER_RESP	0xD	//Выдать данные по каналам, согласно последовательности опроса;
-
-#define  CHANNEL_SET_STATE_REQ		   	0xE//Установить состояния по каналам, согласно абсолютной нумерации;
-#define  CHANNEL_SET_STATE_RESP			   //Установить состояния по каналам, согласно абсолютной нумерации; нет ответа
-
-#define CHANNEL_GET_DATA_ORDER_M2_REQ	0x10 //Выдать данные по каналам, согласно последовательности опроса;
-#define CHANNEL_GET_DATA_ORDER_M2_RESP	0x11//Выдать данные по каналам, согласно последовательности опроса;
-
-#define CHANNEL_SET_RESET_STATE_FLAGS_REQ  0x12//Установка/Сброс флагов состояния 
-#define CHANNEL_SET_RESET_STATE_FLAGS_RESP //Установка/Сброс флагов состояния -нет ответа
-
-#define  CHANNEL_ALL_GET_DATA_REQ		0x14 //Выдать информацию по всем каналам узла (расширенный режим);
-#define  CHANNEL_ALL_GET_DATA_RESP		0x15 //Выдать информацию по всем каналам узла (расширенный режим);
-
-#define  CHANNEL_SET_ADDRESS_DESC		0xCD //установить новый адрес устройства, имя, описание, версию прошивки и комментарий
-
-#define  CHANNEL_SET_CALIBRATE			0xCA//установить верхнюю или нижнюю точку двухточечной калибровки
+#define  CHANNEL_SET_CALIBRATE			0x2//установить верхнюю или нижнюю точку двухточечной калибровки
 
 #define  REQUEST_ERROR					0xFF//Ошибочный запрос/ответ;
 
@@ -117,8 +118,13 @@ static unsigned char  CRC_Check( unsigned char xdata *Spool,unsigned char Count)
 void Store_Dev_Address_Desc(unsigned char addr,void* name,void* ver,void* desc,unsigned char desc_len);//сохранить в ППЗУ новый адрес устройства, имя, версию, описание
 void Restore_Dev_Address_Desc(void);//восстановить из ппзу адрес и информацию об устройстве
  //------------------------------------------------------------------------------
- extern struct Channel xdata channels[CHANNEL_NUMBER];//обобщенная структура каналов
- extern struct ADC_Channels xdata adc_channels[ADC_CHANNELS_NUM]; //каналы ацп
+// extern struct Channel xdata channels[CHANNEL_NUMBER];//обобщенная структура каналов
+// extern struct ADC_Channels xdata adc_channels[ADC_CHANNELS_NUM]; //каналы ацп
+
+extern volatile unsigned int data I04_mA;
+extern volatile unsigned int data I20_mA;
+extern volatile unsigned char data FREQ_MAX;//Hz
+extern volatile unsigned char data  FREQ_FRAME;
 //--------------------------------------------------------------------
 
 //---------------------------------------------------------------------

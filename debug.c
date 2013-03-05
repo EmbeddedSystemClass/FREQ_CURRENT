@@ -5,6 +5,8 @@
 #include "frequency.h"
 #include "dac.h"
 #include "timer1.h"
+#include "proto_uso\proto_uso.h"
+
 
 
  //---------------------------------------
@@ -22,7 +24,8 @@ void main(void) //using 0
 //    T3FD = T3FD_VAL;
 //    SCON =0x52; //0x53;
 //---------------------
-	
+	UART_Init();
+	Protocol_Init();
 	Timer1_Initialize(); //таймер генерации частоты
 
 	Frequency_Init();
@@ -34,6 +37,7 @@ void main(void) //using 0
 	while(1)
 	{	
 	  Frequency_Measure_Process();
+	  ProtoProcess();
 	  WDT_Clear();
 	}
 }

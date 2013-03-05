@@ -4,6 +4,9 @@
 "frequency.obj",
 "timer2.obj",
 "dac.obj",
-"timer1.obj" 
+"timer1.obj",
+"proto_uso.obj",
+"timer3.obj",
+"eeprom.obj" 
 TO "debug" 
 RAMSIZE(256) 

@@ -163,7 +163,7 @@
             <DriverSelection>4099</DriverSelection>
           </Flash1>
           <Flash2>BIN\MONADI.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
         </Utilities>
         <Target51>
@@ -279,12 +279,12 @@
           </Target51Misc>
           <C51>
             <RegisterColoring>0</RegisterColoring>
-            <VariablesInOrder>1</VariablesInOrder>
+            <VariablesInOrder>0</VariablesInOrder>
             <IntegerPromotion>1</IntegerPromotion>
             <uAregs>1</uAregs>
             <UseInterruptVector>1</UseInterruptVector>
             <Fuzzy>3</Fuzzy>
-            <Optimize>6</Optimize>
+            <Optimize>9</Optimize>
             <WarningLevel>2</WarningLevel>
             <SizeSpeed>1</SizeSpeed>
             <ObjectExtend>1</ObjectExtend>
@@ -437,6 +437,21 @@
               <FileName>timer1.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\timer1.c</FilePath>
+            </File>
+            <File>
+              <FileName>proto_uso.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\proto_uso\proto_uso.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer3.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\timer3.c</FilePath>
+            </File>
+            <File>
+              <FileName>eeprom.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\eeprom\eeprom.c</FilePath>
             </File>
           </Files>
         </Group>
