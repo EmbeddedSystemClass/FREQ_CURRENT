@@ -7,8 +7,6 @@
 #include "preferences.h"
 #include "watchdog.h"
 #include <ADuC845.h>
-
-#define FREQ_FRAME 20
 //----------------------------------------------------
 struct Frequency
 {
@@ -20,12 +18,12 @@ struct Frequency
 		unsigned int time_copy;	   //полученное время за четверть кадра
 		unsigned int event_copy;   //количество событий за четверть кадра
 		
-	}frame[FREQ_FRAME];
+	}frame[4];
 };
 //----------------------------------------------------
 void Frequency_Init(void);//инициализация частотных каналов
 unsigned char Frequency_Measure_Process(void);//циклический процесс измерения частоты
-//unsigned char Sec_Task(void);//секундная задача для определения нулевой частоты
+unsigned char Sec_Task(void);//секундная задача для определения нулевой частоты
 void INT0_ISR(void);//обработчик внешнего прерывания 0
 void INT1_ISR(void);//обработчик внешнего прерывания 1
 void INT2_ISR(void);//обработчик внешнего прерывания 2-использует внешний вход таймера T0

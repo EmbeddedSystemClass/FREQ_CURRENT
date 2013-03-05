@@ -17,10 +17,10 @@ void main(void) //using 0
 	
 	PLLCON&=PLLCON_VAL;//настройка частоты процессора
 //-------printf--------
-    T3CON = T3CON_VAL;
-
-    T3FD = T3FD_VAL;
-    SCON =0x52; //0x53;
+//    T3CON = T3CON_VAL;
+//
+//    T3FD = T3FD_VAL;
+//    SCON =0x52; //0x53;
 //---------------------
 	
 	Timer1_Initialize(); //таймер генерации частоты
